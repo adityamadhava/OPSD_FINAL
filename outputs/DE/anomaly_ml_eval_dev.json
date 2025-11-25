@@ -1,0 +1,10 @@
+{
+  "country": "DE",
+  "split": "dev",
+  "pr_auc": 1.0,
+  "f1_at_fixed_precision": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "fixed_precision": 0.8,
+  "model_type": "lightgbm"
+}

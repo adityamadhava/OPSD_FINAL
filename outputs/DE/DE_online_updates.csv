@@ -1,0 +1,6 @@
+timestamp,strategy,reason,duration_s,mase_before,mase_after,pi_coverage_before,pi_coverage_after
+2020-06-13 09:00:00+00:00,rolling_refit,initial,4.359397888183594,,,,
+2020-06-14 00:00:00+00:00,rolling_refit,scheduled,4.154320001602173,,,,
+2020-06-15 00:00:00+00:00,rolling_refit,scheduled,4.061411142349243,,,,
+2020-06-16 00:00:00+00:00,rolling_refit,scheduled,3.6824588775634766,,,,
+2020-06-17 00:00:00+00:00,rolling_refit,scheduled,3.9582509994506836,,,,
