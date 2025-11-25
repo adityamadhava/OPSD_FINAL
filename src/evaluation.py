@@ -228,7 +228,16 @@ def evaluate_country(
 def main():
     """Evaluate forecasts for all countries and splits."""
     output_dir = Path(__file__).parent.parent / "outputs"
-    countries = ['DE', 'FR', 'ES']
+    
+    # =================================================================
+    # SELECT COUNTRIES TO PROCESS
+    # Uncomment the countries you want to run
+    # =================================================================
+    countries = [
+        'DE',  # Germany
+        # 'FR',  # France
+        # 'ES',  # Spain
+    ]
     splits = ['dev', 'test']
     
     all_results = []

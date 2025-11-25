@@ -157,10 +157,18 @@ def plot_anomalies(
 
 
 def main():
-    """Visualize anomalies for DE."""
+    """Visualize anomalies for selected country."""
     output_dir = Path(__file__).parent.parent / "outputs"
-    country = 'DE'
-    split = 'dev'
+    
+    # =================================================================
+    # SELECT COUNTRY AND SPLIT TO PROCESS
+    # Uncomment the country you want to run
+    # =================================================================
+    country = 'DE'  # Germany
+    # country = 'FR'  # France
+    # country = 'ES'  # Spain
+    
+    split = 'dev'  # or 'test'
     
     # Load anomalies file
     anomalies_file = output_dir / country / f"{country}_anomalies.csv"

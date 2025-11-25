@@ -404,9 +404,16 @@ def simulate_live_ingestion(
 
 
 def main():
-    """Run live ingestion simulation for DE."""
+    """Run live ingestion simulation for selected country."""
     output_dir = Path(__file__).parent.parent / "outputs"
-    country = 'DE'
+    
+    # =================================================================
+    # SELECT COUNTRY TO PROCESS
+    # Uncomment the country you want to run
+    # =================================================================
+    country = 'DE'  # Germany
+    # country = 'FR'  # France
+    # country = 'ES'  # Spain
     
     print(f"\n{'#'*60}")
     print(f"LIVE INGESTION + ONLINE ADAPTATION SIMULATION")

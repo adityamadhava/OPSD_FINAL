@@ -1,0 +1,12 @@
+# 1. Setup
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# 2. Edit src/data_preparation.py - uncomment 'DE'
+python src/data_preparation.py
+
+# 3. Edit src/create_sanity_plots.py - uncomment 'DE'
+python src/create_sanity_plots.py
+
+# ... continue with remaining steps

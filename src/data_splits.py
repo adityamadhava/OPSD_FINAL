@@ -119,7 +119,15 @@ def main():
     processed_dir = Path(__file__).parent.parent / "data" / "processed"
     output_dir = Path(__file__).parent.parent / "outputs"
     
-    countries = ['DE', 'FR', 'ES']
+    # =================================================================
+    # SELECT COUNTRIES TO PROCESS
+    # Uncomment the countries you want to run
+    # =================================================================
+    countries = [
+        'DE',  # Germany
+        # 'FR',  # France
+        # 'ES',  # Spain
+    ]
     all_splits = {}
     
     for country in countries:

@@ -142,11 +142,17 @@ def load_and_prepare_all_countries(
 
 
 if __name__ == "__main__":
+    countries = [
+        'DE',  # Germany
+        # 'FR',  # France
+        # 'ES',  # Spain
+    ]
+    
     # Test the data preparation
     data_dir = Path(__file__).parent.parent / "data" / "raw"
     input_file = data_dir / "time_series_60min.csv"
     
-    country_data = load_and_prepare_all_countries(input_file)
+    country_data = load_and_prepare_all_countries(input_file, countries=countries)
     
     # Save processed data
     processed_dir = Path(__file__).parent.parent / "data" / "processed"

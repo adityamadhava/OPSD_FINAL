@@ -582,9 +582,16 @@ def train_ml_classifier_country(
 
 
 def main():
-    """Run anomaly detection for DE."""
+    """Run anomaly detection for selected country."""
     output_dir = Path(__file__).parent.parent / "outputs"
-    country = 'DE'
+    
+    # =================================================================
+    # SELECT COUNTRY TO PROCESS
+    # Uncomment the country you want to run
+    # =================================================================
+    country = 'DE'  # Germany
+    # country = 'FR'  # France
+    # country = 'ES'  # Spain
     
     # 3.1: Residual z-score + CUSUM
     print(f"\n{'#'*60}")
