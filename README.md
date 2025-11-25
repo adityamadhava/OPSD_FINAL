@@ -50,7 +50,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-**Note:** If you encounter issues with `lightgbm` on macOS, the code will automatically fall back to Logistic Regression for anomaly detection.
+**Note:** 
+- If you encounter issues with `lightgbm` on macOS, the code will automatically fall back to Logistic Regression for anomaly detection.
+- `torch` is required for neural network models (GRU/LSTM). If you only use SARIMA models, torch is optional.
 
 ### 4. Verify Data File
 
@@ -78,13 +80,15 @@ OPSD_Final_TEST_V1/
 │   ├── stl_decomposition.py          # Step 3: STL decomposition and seasonality
 │   ├── sarima_model_selection.py      # Step 4: SARIMA model selection
 │   ├── data_splits.py                 # Step 5: Train/dev/test splits
-│   ├── backtest_combined.py           # Step 6: Backtesting framework
+│   ├── backtest_combined.py           # Step 6: Backtesting framework (SARIMA)
+│   ├── neural_models.py               # Step 6b: Neural models (GRU/LSTM)
 │   ├── evaluation.py                  # Step 7: Evaluation metrics
 │   ├── anomaly_detection.py           # Step 8: Anomaly detection
 │   ├── visualize_anomalies.py         # Step 9: Anomaly visualization
 │   ├── online_adaptation.py           # Step 10: Live ingestion simulation
 │   ├── dashboard.py                   # Step 11: Streamlit dashboard
-│   └── ...                            # Supporting modules
+│   ├── analysis.py                    # Supporting: STL, stationarity functions
+│   └── visualization.py               # Supporting: Plotting utilities
 ├── outputs/
 │   ├── DE/                            # Germany outputs
 │   ├── FR/                            # France outputs
@@ -202,8 +206,8 @@ python src/backtest_combined.py
 ```
 
 **What it does:**
-- Expanding-origin backtesting with stride=168h (weekly), horizon=168h
-- Generates forecasts with 80% prediction intervals
+- Expanding-origin backtesting with stride=24h, horizon=24h (day-ahead forecasting)
+- Generates forecasts with 80% prediction intervals using SARIMA models
 - **Estimated time:** 30-60 minutes per country (depends on data size)
 
 **Outputs:**
@@ -211,6 +215,9 @@ python src/backtest_combined.py
 - `outputs/{COUNTRY}/{COUNTRY}_forecasts_test.csv`
 
 **Note:** This step is memory-intensive. If your system hangs, try running for one country at a time.
+
+**Optional: Neural Models (GRU/LSTM)**
+For neural network forecasting, you can use `src/neural_models.py` which implements GRU and LSTM models for multi-horizon forecasting (last 168h → next 24h).
 
 ---
 
@@ -285,7 +292,7 @@ python src/online_adaptation.py
 - Forecasts next 24h at 00:00 UTC
 - Detects drift using EWMA of |z|
 - Triggers rolling SARIMA refit (last 90 days) on drift or scheduled updates
-- **Note:** Currently set to 100 hours for testing. Change `start_hours` parameter for full 2000+ hours.
+- **Note:** For full compliance with assignment requirements (≥2000 hours), change `start_hours=100` to `start_hours=2000` in the script.
 
 **Outputs:**
 - `outputs/{COUNTRY}/{COUNTRY}_online_forecasts.csv`
