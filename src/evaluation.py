@@ -235,8 +235,8 @@ def main():
     # =================================================================
     countries = [
         'DE',  # Germany
-        # 'FR',  # France
-        # 'ES',  # Spain
+        'FR',  # France
+        'ES',  # Spain
     ]
     splits = ['dev', 'test']
     

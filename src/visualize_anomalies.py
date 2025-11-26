@@ -165,8 +165,8 @@ def main():
     # Uncomment the country you want to run
     # =================================================================
     country = 'DE'  # Germany
-    # country = 'FR'  # France
-    # country = 'ES'  # Spain
+    country = 'FR'  # France
+    country = 'ES'  # Spain
     
     split = 'dev'  # or 'test'
     

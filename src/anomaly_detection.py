@@ -590,8 +590,8 @@ def main():
     # Uncomment the country you want to run
     # =================================================================
     country = 'DE'  # Germany
-    # country = 'FR'  # France
-    # country = 'ES'  # Spain
+    country = 'FR'  # France
+    country = 'ES'  # Spain
     
     # 3.1: Residual z-score + CUSUM
     print(f"\n{'#'*60}")

@@ -424,10 +424,17 @@ def main():
     print(f"Simulation hours: 100 (TEST MODE)")
     
     # Run simulation (testing with 100 hours)
+    # update_log = simulate_live_ingestion(
+    #     country,
+    #     output_dir,
+    #     start_hours=100,  # Test with 100 hours first
+    #     adaptation_strategy='rolling_refit',
+    #     refit_window_days=90
+    # )
     update_log = simulate_live_ingestion(
         country,
         output_dir,
-        start_hours=100,  # Test with 100 hours first
+        start_hours=2000,  # Full simulation
         adaptation_strategy='rolling_refit',
         refit_window_days=90
     )

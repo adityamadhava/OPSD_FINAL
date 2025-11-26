@@ -1,0 +1,220 @@
+  self._init_dates(dates, freq)
+/home/pilidium/Documents/GitHub/OPSD_FINAL/aditya/lib/python3.12/site-packages/statsmodels/tsa/base/tsa_model.py:837: ValueWarning: No supported index is available. Prediction results will be given with an integer index beginning at `start`.
+  return get_prediction_index(
+    Completed 15 forecasts
+4. Completed → 2520 forecast rows
+Saved TEST forecasts → /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/ES_forecasts_test.csv
+✓ Completed ES
+============================================================
+Backtesting Complete - All Countries Processed
+============================================================
+============================================================
+Evaluating DE - DEV set
+============================================================
+  Loaded 2616 forecast points
+  Calculating metrics...
+  Results:
+    MASE:           0.7352
+    sMAPE:          6.6596%
+    MSE:            24817828.12
+    RMSE:           4981.75
+    MAPE:           6.5682%
+    PI Coverage:    96.29%
+    N Forecasts:    2616
+============================================================
+Evaluating DE - TEST set
+============================================================
+  Loaded 2520 forecast points
+  Calculating metrics...
+  Results:
+    MASE:           3.4706
+    sMAPE:          36.6345%
+    MSE:            320232957.78
+    RMSE:           17895.05
+    MAPE:           30.8796%
+    PI Coverage:    98.89%
+    N Forecasts:    2520
+============================================================
+Evaluating FR - DEV set
+============================================================
+  Loaded 2616 forecast points
+  Calculating metrics...
+  Results:
+    MASE:           0.6265
+    sMAPE:          4.2617%
+    MSE:            9300515.48
+    RMSE:           3049.67
+    MAPE:           4.2335%
+    PI Coverage:    98.74%
+    N Forecasts:    2616
+============================================================
+Evaluating FR - TEST set
+============================================================
+  Loaded 2520 forecast points
+  Calculating metrics...
+  Results:
+    MASE:           3.2344
+    sMAPE:          26.5344%
+    MSE:            168682787.69
+    RMSE:           12987.79
+    MAPE:           23.6588%
+    PI Coverage:    98.21%
+    N Forecasts:    2520
+============================================================
+Evaluating ES - DEV set
+============================================================
+  Loaded 2616 forecast points
+  Calculating metrics...
+  Results:
+    MASE:           0.6610
+    sMAPE:          5.0975%
+    MSE:            3416681.34
+    RMSE:           1848.43
+    MAPE:           5.0121%
+    PI Coverage:    99.43%
+    N Forecasts:    2616
+============================================================
+Evaluating ES - TEST set
+============================================================
+  Loaded 2520 forecast points
+  Calculating metrics...
+  Results:
+    MASE:           3.3796
+    sMAPE:          24.5551%
+    MSE:            51403221.10
+    RMSE:           7169.60
+    MAPE:           21.9510%
+    PI Coverage:    98.85%
+    N Forecasts:    2520
+============================================================
+Evaluation Summary
+============================================================
+country split     MASE     sMAPE          MSE         RMSE      MAPE  PI_coverage_80  n_forecasts
+     DE   dev 0.735158  6.659564 2.481783e+07  4981.749503  6.568170       96.292049         2616
+     DE  test 3.470636 36.634520 3.202330e+08 17895.054003 30.879617       98.888889         2520
+     FR   dev 0.626478  4.261708 9.300515e+06  3049.674651  4.233481       98.738532         2616
+     FR  test 3.234376 26.534413 1.686828e+08 12987.793796 23.658830       98.214286         2520
+     ES   dev 0.660984  5.097529 3.416681e+06  1848.426720  5.012074       99.426606         2616
+     ES  test 3.379638 24.555098 5.140322e+07  7169.603971 21.950956       98.849206         2520
+Saved results to: /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/evaluation_results.csv
+============================================================
+Test Set Comparison (All Countries)
+============================================================
+country     MASE     sMAPE         RMSE      MAPE  PI_coverage_80
+     DE 3.470636 36.634520 17895.054003 30.879617       98.888889
+     FR 3.234376 26.534413 12987.793796 23.658830       98.214286
+     ES 3.379638 24.555098  7169.603971 21.950956       98.849206
+############################################################
+3.1: Residual Z-Score + CUSUM Detection - ES
+############################################################
+============================================================
+Anomaly Detection for ES - DEV
+============================================================
+1. Loading forecasts from /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/ES_forecasts_dev.csv
+   Loaded 2616 forecast points
+2. Calculating 1-step-ahead residuals...
+   Mean residual: -44.00
+   Std residual: 1848.26
+3. Calculating rolling z-score (window=336h, min_periods=168h)...
+   Detected 60 z-score anomalies (2.29%)
+4. Calculating CUSUM (k=0.5, h=5.0)...
+   Detected 954 CUSUM anomalies (36.47%)
+5. Saving anomaly detection results...
+   Saved to /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/ES_anomalies.csv
+############################################################
+3.2: ML-Based Anomaly Classifier - ES
+############################################################
+============================================================
+ML Classifier Training for ES - DEV
+============================================================
+1. Creating silver labels...
+   Positives: 18
+   Negatives: 1941
+   Unlabeled: 657
+2. Sampling timestamps for human verification...
+   Saved verification sample to /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/anomaly_labels_verified_dev.csv
+   Please verify these 68 samples manually
+3. Creating features for classifier...
+4. Training classifier...
+  Training samples: 1567 (positives: 14)
+  Test samples: 392 (positives: 4)
+  Evaluation Metrics:
+    PR-AUC: 1.0000
+    F1 at P=0.8: 0.8889
+    Precision: 0.8000
+    Recall: 1.0000
+   Saved evaluation to /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/anomaly_ml_eval_dev.json
+============================================================
+Anomaly Detection Complete
+============================================================
+Loading anomalies from /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/ES_anomalies.csv
+Loading forecasts from /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/ES_forecasts_dev.csv
+Saved visualization to /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/ES/anomalies_visualization_dev.png
+============================================================
+Anomaly Visualization Complete
+============================================================
+############################################################
+LIVE INGESTION + ONLINE ADAPTATION SIMULATION
+############################################################
+Country: DE
+Strategy: Rolling SARIMA Refit
+Refit window: 90 days
+Simulation hours: 100 (TEST MODE)
+============================================================
+Live Ingestion Simulation - DE
+============================================================
+Strategy: rolling_refit
+Simulating 2000 hours...
+Simulation range: 2020-06-13 09:00:00+00:00 to 2020-09-04 16:00:00+00:00
+Initial model: SARIMA(1,1,1)(1,1,1)24
+Starting simulation...
+Progress: 0/2000 200/2000 400/2000 600/2000 800/2000 1000/2000 1200/2000 1400/2000 1600/2000 1800/2000
+Simulation complete!
+Total updates: 84
+Total forecasts: 2016
+Saved update log to /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/DE/DE_online_updates.csv
+Saved forecasts to /home/pilidium/Documents/GitHub/OPSD_FINAL/outputs/DE/DE_online_forecasts.csv
+============================================================
+Update Summary
+============================================================
+Total updates: 84
+Scheduled updates: 83
+Drift-triggered updates: 0
+Average duration: 4.19s
+Metrics Comparison (before vs after):
+  MASE improvement: 0.8789 → 0.8522
+  PI Coverage: 93.95% → 94.45%
+============================================================
+Simulation Complete
+============================================================
+(aditya) pilidium@zeitlos-mega:~/Documents/GitHub/OPSD_FINAL$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   outputs/DE/DE_forecasts_dev.csv
+        modified:   outputs/DE/DE_online_forecasts.csv
+        modified:   outputs/DE/DE_online_updates.csv
+        modified:   outputs/evaluation_results.csv
+        modified:   src/anomaly_detection.py
+        modified:   src/backtest_combined.py
+        modified:   src/evaluation.py
+        modified:   src/online_adaptation.py
+        modified:   src/visualize_anomalies.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        aditya/
+        outputs/DE/DE_forecasts_test.csv
+        outputs/ES/ES_anomalies.csv
+        outputs/ES/ES_forecasts_dev.csv
+        outputs/ES/ES_forecasts_test.csv
+        outputs/ES/anomalies_visualization_dev.png
+        outputs/ES/anomaly_labels_verified_dev.csv
+        outputs/ES/anomaly_ml_eval_dev.json
+        outputs/FR/FR_forecasts_dev.csv
+        outputs/FR/FR_forecasts_test.csv
+
+no changes added to commit (use "git add" and/or "git commit -a")

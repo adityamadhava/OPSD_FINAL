@@ -241,8 +241,8 @@ def main():
     # =================================================================
     countries = [
         'DE',  # Germany
-        # 'FR',  # France
-        # 'ES',  # Spain
+        'FR',  # France
+        'ES',  # Spain
     ]
     
     # Process each country
@@ -263,8 +263,8 @@ def main():
                 country,
                 output_dir,
                 split="dev",
-                horizon=168,
-                stride=168,
+                horizon=24,
+                stride=24,
                 warmup_days=60,
             )
 
